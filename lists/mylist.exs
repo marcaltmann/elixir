@@ -14,6 +14,9 @@ defmodule MyList do
   def mapsum([], _func), do: 0
   def mapsum([ head | tail ], func), do: func.(head) + mapsum(tail, func)
 
+  def span(a, a), do: [ a ]
+  def span(a, b), do: [ a | span(a + 1, b)  ]
+
   def max2(list, value \\ nil)
   def max2([], value), do: value
   def max2([ head | tail ], nil), do: max2(tail, head)
