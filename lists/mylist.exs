@@ -17,6 +17,10 @@ defmodule MyList do
   def span(a, a), do: [ a ]
   def span(a, b), do: [ a | span(a + 1, b)  ]
 
+  def prime_numbers(n) do
+    for x <- 1..n, (for y <- 1..x, rem(x, y) === 0, do: y) === [1, x], do: x
+  end
+
   def max2(list, value \\ nil)
   def max2([], value), do: value
   def max2([ head | tail ], nil), do: max2(tail, head)
